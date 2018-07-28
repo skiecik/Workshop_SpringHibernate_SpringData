@@ -83,27 +83,30 @@
 									</div>
 								</div>
 							</div>
-							<button type="button" class="btn btn-outline-info btn-sm card-link"
-								data-toggle="collapse" data-target="#commentDiv${skieet.getId()}">Show
+							<button type="button"
+								class="btn btn-outline-info btn-sm card-link"
+								data-toggle="collapse"
+								data-target="#commentDiv${skieet.getId()}">Show
 								comments</button>
 						</div>
 					</div>
-					<div class="card-footer text-muted collapse" id="commentDiv${skieet.getId()}">
-						<c:forEach items="${skieet.getComments()}" var="comment">
-						<div class="card container" style="width: 18rem;">
-							<div class="card-body">
-								<h5 class="card-title">
-									<c:out value="${comment.getUser().getUserName()}" />
-								</h5>
-								<h6 class="card-subtitle mb-2 text-muted">
-									<c:out value="${comment.getCreated()}" />
-								</h6>
-								<p class="card-text">
-									<c:out value="${comment.getText()}" />
-								</p>
+					<div class="card-footer text-muted collapse"
+						id="commentDiv${skieet.getId()}">
+						<c:forEach items="${skieet.fiveNewestComments()}" var="comment">
+							<div class="card container" style="width: 18rem;">
+								<div class="card-body">
+									<h5 class="card-title">
+										<c:out value="${comment.getUser().getUserName()}" />
+									</h5>
+									<h6 class="card-subtitle mb-2 text-muted">
+										<c:out value="${comment.getCreated()}" />
+									</h6>
+									<p class="card-text">
+										<c:out value="${comment.getText()}" />
+									</p>
+								</div>
 							</div>
-						</div>
-					</c:forEach>
+						</c:forEach>
 					</div>
 				</div>
 			</c:forEach>
