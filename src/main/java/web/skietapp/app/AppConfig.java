@@ -12,8 +12,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import web.skietapp.interceptor.LogInterceptor;
 
 @Configuration
 @EnableWebMvc
@@ -22,6 +25,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableJpaRepositories(basePackages = "web.skietapp.repository")
 public class AppConfig implements WebMvcConfigurer {
 
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+	    registry.addInterceptor(new LogInterceptor()).excludePathPatterns("/", "/register");
+	}
+	
 	@Bean
 	public LocalEntityManagerFactoryBean entityManagerFactory() {
 		LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();
