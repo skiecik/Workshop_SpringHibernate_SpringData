@@ -4,7 +4,7 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
 
-	<persistence-unit name="twittWorkshop">
+	<!-- <persistence-unit name="twittWorkshop">
 		<properties>
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:mysql://localhost:3306/workshop_6?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;serverTimezone=UTC" />
@@ -26,8 +26,35 @@
 			<property name="hibernate.connection.characterEncoding"
 				value="utf8" />
 			<property name="hibernate.connection.CharSet" value="utf8" />
-			<property name="hibernate.enable_lazy_load_no_trans" value="true" />
+			<property name="hibernate.enable_lazy_load_no_trans"
+				value="true" />
+		</properties>
+	</persistence-unit>-->
+
+	<persistence-unit name="postgres">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<property name="hibernate.archive.autodetection"
+				value="class" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.connection.driver_class"
+				value="org.postgresql.Driver" />
+			<property name="hibernate.connection.url"
+				value="jdbc:postgresql://ec2-50-16-241-91.compute-1.amazonaws.com:5432/d4nshikbobuf44" />
+			<property name="hibernate.connection.username"
+				value="ayvihndxxaronj" />
+			<property name="hibernate.connection.password"
+				value="ef9ca5df4957233ea4c719eb04f6da824c0f79d5ba3940508c90881901ac64c1" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.enable_lazy_load_no_trans"
+				value="true" />
+			<property name="hibernate.connection.CharSet" value="utf8" />
+			<property name="hibernate.connection.characterEncoding"
+				value="utf8" />
+			<property name="hibernate.connection.useUnicode"
+				value="true" />
 		</properties>
 	</persistence-unit>
-
 </persistence>
