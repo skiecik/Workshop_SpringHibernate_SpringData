@@ -80,12 +80,6 @@
 			<artifactId>postgresql</artifactId>
 			<version>42.2.4</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-webapp -->
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-webapp</artifactId>
-			<version>9.4.12.RC0</version>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.github.jsimone/webapp-runner -->
 		<dependency>
 			<groupId>com.github.jsimone</groupId>
@@ -113,7 +107,7 @@
 								<artifactItem>
 									<groupId>com.github.jsimone</groupId>
 									<artifactId>webapp-runner</artifactId>
-									<version>8.0.30.2</version>
+									<version>9.0.8.0</version>
 									<destFileName>webapp-runner.jar</destFileName>
 								</artifactItem>
 							</artifactItems>
