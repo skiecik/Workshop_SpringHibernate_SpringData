@@ -7,7 +7,7 @@
 	<persistence-unit name="twittWorkshop">
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://o677vxfi8ok6exrd.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/iasph8wta999gqmf?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;serverTimezone=UTC" />
+				value="jdbc:mysql://o677vxfi8ok6exrd.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/iasph8wta999gqmf" />
 			<property name="javax.persistence.jdbc.user" value="dhagbvyyqduphhjb" />
 			<property name="javax.persistence.jdbc.password"
 				value="lm0gutodqvndu09p" />
