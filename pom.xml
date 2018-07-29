@@ -86,6 +86,12 @@
 			<artifactId>jetty-webapp</artifactId>
 			<version>9.4.12.RC0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.github.jsimone/webapp-runner -->
+		<dependency>
+			<groupId>com.github.jsimone</groupId>
+			<artifactId>webapp-runner</artifactId>
+			<version>9.0.8.0</version>
+		</dependency>
 
 	</dependencies>
 
