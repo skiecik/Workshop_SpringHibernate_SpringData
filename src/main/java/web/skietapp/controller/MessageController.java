@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import web.skietapp.model.Message;
 import web.skietapp.model.User;
@@ -39,17 +39,17 @@ public class MessageController {
 	
 	@GetMapping("/send/{id}")
 	public String message(Model model, @PathVariable long id) {
-		User reciever = userRepository.getOne(id);
-		Message message = new Message();
-		message.setReciever(reciever);
-		model.addAttribute("message", message);
+		User receiver = userRepository.getOne(id);
+		model.addAttribute("receiver", receiver);
 		return "messageSend";
 	}
 	
 	@PostMapping("/send/{id}")
-	public String sendMessage(@ModelAttribute Message message, @PathVariable long id, HttpSession sess) {
+	public String sendMessage(HttpSession sess, @RequestParam String text, @PathVariable long id) {
+		Message message = new Message();
 		message.setSender((User) sess.getAttribute("logged"));
 		message.setReciever(userRepository.getOne(id));
+		message.setText(text);
 		Date date = new Date();
 		Timestamp time = new Timestamp(date.getTime());
 		message.setSend(time);

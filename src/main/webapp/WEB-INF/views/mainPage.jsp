@@ -13,7 +13,8 @@
 <title>SkietApp</title>
 </head>
 <body>
-
+<%@ include file="/WEB-INF/fragments/header.jsp" %>
+<br>
 	<div class="container">
 		<div class="row">
 			<div class="container col-lg-4 col-md-4">
@@ -34,7 +35,9 @@
 					<div class="row">
 						<div class="card-body">
 							<h5 class="card-title">
+								<a class="btn btn-secondary" href="user/${skieet.getUser().getId() }" role="button">
 								<c:out value="${skieet.getUser().getUserName()}" />
+								</a>
 							</h5>
 							<h6 class="card-subtitle mb-2 text-muted">
 								<c:out value="${skieet.getDate()}" />

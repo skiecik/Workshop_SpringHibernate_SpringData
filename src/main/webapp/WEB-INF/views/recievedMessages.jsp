@@ -13,17 +13,21 @@
 <title>SkietApp</title>
 </head>
 <body>
-
+	<%@ include file="/WEB-INF/fragments/header.jsp"%>
+	<br>
 	<div class="container">
+		<h5>Your recieved messages:</h5>
+		<br>
 		<div class="list-group">
 			<c:forEach items="${messages}" var="message">
 				<button type="button" data-toggle="collapse"
-					data-target="#message${message.getSender().getId() }"
+					data-target="#message${message.getId()}"
 					class="list-group-item list-group-item-action list-group-item-info">
 					Message from:
 					<c:out value="${message.getSender().getUserName()}" />
 				</button>
-				<div class="card text-center collapse" id="message${message.getSender().getId() }">
+				<div class="card text-center collapse"
+					id="message${message.getId()}">
 					<div class="card-body">
 						<h5 class="card-title">
 							<c:out value="${message.getSend()}" />

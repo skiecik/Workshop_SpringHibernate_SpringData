@@ -13,7 +13,8 @@
 <title>SkietApp</title>
 </head>
 <body>
-
+<%@ include file="/WEB-INF/fragments/header.jsp" %>
+<br>
 	<div class="container">
 		<div class="container">
 			<div class="card text-center">

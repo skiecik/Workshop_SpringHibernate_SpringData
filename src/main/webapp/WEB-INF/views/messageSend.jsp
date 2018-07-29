@@ -13,17 +13,17 @@
 <title>SkietApp</title>
 </head>
 <body>
-
+	<%@ include file="/WEB-INF/fragments/header.jsp"%>
+	<br>
 	<div class="container">
-		<form:form method="post" modelAttribute="message">
+		<form method="post">
 			<div class="form-group">
-				<label for="messageSend">Message to: ${message.getReciever().getUserName()}</label>
-				<form:textarea path="text" class="form-control"
-					id="messageSend" rows="3" />
-				<input name="recieverId"type="hidden" value="${message.getReciever().getId()}"/>
+				<label for="messageSend">Message to:
+					${receiver.getUserName()}</label>
+				<textarea class="form-control" id="messageSend" rows="4" name="text"></textarea>
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</div>
-		</form:form>
+		</form>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -8,6 +8,6 @@ import web.skietapp.model.Skieet;
 
 public interface SkieetRepository extends JpaRepository<Skieet, Long> {
 
-	List<Skieet> findAllByUserId(long id);
+	List<Skieet> findAllByUserIdOrderByDateDesc(long id);
 	List<Skieet> findAllByUserUserName(String name);
 }

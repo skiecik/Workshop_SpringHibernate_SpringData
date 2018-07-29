@@ -13,25 +13,27 @@
 <title>SkietApp</title>
 </head>
 <body>
-
+<%@ include file="/WEB-INF/fragments/header.jsp" %>
+<br>
 	<div class="container">
-		<div class="row container">
-			<table class="table table-sm">
-				<tbody>
-					<tr>
-						<th scope="row">UserName:</th>
-						<td><c:out value="${user.getUserName() }" /></td>
-					</tr>
-					<tr>
-						<td><a class="btn btn-primary" href="#" role="button">Send
-								Message</a></td>
-					</tr>
-				</tbody>
-			</table>
+		<div class="row">
+			<div class="container col-lg-8">
+				<table class="table text-center">
+					<tbody>
+						<tr>
+							<th scope="row">User name: ${user.getUserName()}</th>
+						</tr>
+					</tbody>
+				</table>
+				<a class="btn container btn-primary btn-sm"
+					href="<c:url value="/messages/send/${user.getId() }"/>" role="button">Send Message</a>
+			</div>
 		</div>
+		<br><br>
 		<div class="row container">
 			<div class="container align-items-center">
-				<c:forEach items="${user.getSkieets()}" var="skieet">
+				<h5 class="text-center">All skieets of this user: </h5>
+				<c:forEach items="${skieets}" var="skieet">
 					<div class="card container border-primary" style="width: 22rem;">
 						<div class="row">
 							<div class="card-body">
@@ -44,7 +46,7 @@
 								<p class="card-text">
 									<c:out value="${skieet.getText()}" />
 								</p>
-								<a href="skieet/${skieet.getId()}"
+								<a href="<c:url value="skieet/${skieet.getId()}"/>"
 									class="btn btn-success card-link">Details</a>
 								<button type="button" class="btn btn-primary card-link"
 									data-toggle="modal" data-target="#commentModal">Add
