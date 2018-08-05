@@ -64,6 +64,7 @@
 									<input type="hidden" name="commentSkieetId"
 										value="${skieet.getId()}">
 								</div>
+								<button type="submit" class="btn btn-primary">Submit</button>
 							</form>
 						</div>
 						<!-- 						<button type="button" class="btn btn-primary card-link" -->
