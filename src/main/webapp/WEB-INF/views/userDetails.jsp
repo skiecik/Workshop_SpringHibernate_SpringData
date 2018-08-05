@@ -47,8 +47,12 @@
 								<p class="card-text">
 									<c:out value="${skieet.getText()}" />
 								</p>
-								<a href="<c:url value="skieet/${skieet.getId()}"/>"
+								<a href="<c:url value="/skieet/${skieet.getId()}"/>"
 									class="btn btn-success card-link">Details</a>
+								<button type="button"
+									class="btn btn-outline-info btn-sm card-link"
+									data-toggle="collapse"
+									data-target="#addComment${skieet.getId()}">Add comment</button>
 								<div class="container collapse" id="addComment${skieet.getId()}">
 									<form method="post" action="/start/add/comment">
 										<div class="form-group">
