@@ -13,8 +13,8 @@
 <title>SkietApp</title>
 </head>
 <body>
-<%@ include file="/WEB-INF/fragments/header.jsp" %>
-<br>
+	<%@ include file="/WEB-INF/fragments/header.jsp"%>
+	<br>
 	<div class="container">
 		<div class="row">
 			<div class="container col-lg-4 col-md-4">
@@ -35,8 +35,9 @@
 					<div class="row">
 						<div class="card-body">
 							<h5 class="card-title">
-								<a class="btn btn-secondary" href="user/${skieet.getUser().getId() }" role="button">
-								<c:out value="${skieet.getUser().getUserName()}" />
+								<a class="btn btn-secondary"
+									href="user/${skieet.getUser().getId() }" role="button"> <c:out
+										value="${skieet.getUser().getUserName()}" />
 								</a>
 							</h5>
 							<h6 class="card-subtitle mb-2 text-muted">
@@ -47,51 +48,67 @@
 							</p>
 							<a href="skieet/${skieet.getId()}"
 								class="btn btn-success card-link">Details</a>
-							<button type="button" class="btn btn-primary card-link"
-								data-toggle="modal" data-target="#commentModal">Add
-								Comment</button>
-							<div class="modal fade" id="commentModal" tabindex="-1"
-								role="dialog" aria-labelledby="exampleModalLabel"
-								aria-hidden="true">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel">Modal
-												title</h5>
-											<button type="button" class="close" data-dismiss="modal"
-												aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-										<div class="modal-body">
-											<form id="commentForm" method="post"
-												action="start/add/comment">
-												<div class="form-group">
-													<label for="message-text" class="col-form-label">Message:</label>
-													<textarea name="commentText" class="form-control"
-														id="message-text"></textarea>
-												</div>
-												<div class="form-group">
-													<input type="hidden" name="commentSkieetId"
-														value="${skieet.getId()}">
-												</div>
-											</form>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary"
-												data-dismiss="modal">Close</button>
-											<button type="submit" form="commentForm"
-												class="btn btn-primary">Submit</button>
-										</div>
-									</div>
-								</div>
-							</div>
 							<button type="button"
 								class="btn btn-outline-info btn-sm card-link"
 								data-toggle="collapse"
-								data-target="#commentDiv${skieet.getId()}">Show
-								comments</button>
+								data-target="#addComment${skieet.getId()}">Add comment</button>
 						</div>
+						<div class="container collapse" id="addComment${skieet.getId()}">
+							<form id="commentForm" method="post" action="start/add/comment">
+								<div class="form-group">
+									<label for="message-text" class="col-form-label">Message:</label>
+									<textarea name="commentText" class="form-control"
+										id="message-text"></textarea>
+								</div>
+								<div class="form-group">
+									<input type="hidden" name="commentSkieetId"
+										value="${skieet.getId()}">
+								</div>
+							</form>
+						</div>
+						<!-- 						<button type="button" class="btn btn-primary card-link" -->
+						<%-- 							data-toggle="modal" data-target="#commentModal${skieet.getId()}">Add --%>
+						<!-- 							Comment</button> -->
+						<%-- 						<div class="modal fade" id="commentModal${skieet.getId()}" --%>
+						<!-- 							tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" -->
+						<!-- 							aria-hidden="true"> -->
+						<!-- 							<div class="modal-dialog" role="document"> -->
+						<!-- 								<div class="modal-content"> -->
+						<!-- 									<div class="modal-header"> -->
+						<!-- 										<h5 class="modal-title" id="exampleModalLabel">Modal -->
+						<!-- 											title</h5> -->
+						<!-- 										<button type="button" class="close" data-dismiss="modal" -->
+						<!-- 											aria-label="Close"> -->
+						<!-- 											<span aria-hidden="true">&times;</span> -->
+						<!-- 										</button> -->
+						<!-- 									</div> -->
+						<!-- 									<div class="modal-body"> -->
+						<%-- 										<form id="commentForm" method="post" --%>
+						<%-- 											action="start/add/comment"> --%>
+						<!-- 											<div class="form-group"> -->
+						<!-- 												<label for="message-text" class="col-form-label">Message:</label> -->
+						<!-- 												<textarea name="commentText" class="form-control" -->
+						<!-- 													id="message-text"></textarea> -->
+						<!-- 											</div> -->
+						<!-- 											<div class="form-group"> -->
+						<!-- 												<input type="hidden" name="commentSkieetId" -->
+						<%-- 													value="${skieet.getId()}"> --%>
+						<!-- 											</div> -->
+						<%-- 										</form> --%>
+						<!-- 									</div> -->
+						<!-- 									<div class="modal-footer"> -->
+						<!-- 										<button type="button" class="btn btn-secondary" -->
+						<!-- 											data-dismiss="modal">Close</button> -->
+						<!-- 										<button type="submit" form="commentForm" -->
+						<!-- 											class="btn btn-primary">Submit</button> -->
+						<!-- 									</div> -->
+						<!-- 								</div> -->
+						<!-- 							</div> -->
+						<!-- 						</div> -->
+						<button type="button"
+							class="btn btn-outline-info btn-sm card-link"
+							data-toggle="collapse" data-target="#commentDiv${skieet.getId()}">Show
+							comments</button>
 					</div>
 					<div class="card-footer text-muted collapse"
 						id="commentDiv${skieet.getId()}">
